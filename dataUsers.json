@@ -1,0 +1,32 @@
+[
+ {
+ 	"firstname":"Tupac",
+ 	"lastname":"Shakur",
+ 	"phones" : [
+ 		{
+ 			"phone_number": "0600000005",
+ 			"phone_type_id": "1"
+ 		}
+ 	]
+ },
+ {
+ 	"firstname":"Christopher",
+ 	"lastname":"Wallace",
+ 	"phones" : [
+ 		{
+ 			"phone_number": "0600000006",
+ 			"phone_type_id": "1"
+ 		}
+ 	]
+ },
+ {
+ 	"firstname":"Sean",
+ 	"lastname":"Carter",
+ 	"phones" : [
+ 		{
+ 			"phone_number": "0600000006",
+ 			"phone_type_id": "1"
+ 		}
+ 	]
+ }
+]
