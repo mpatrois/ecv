@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liste des utilisateurs</title>
+	<!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+</head>
+<body>
+	<div id="app">
+	  <router-view></router-view>
+	</div>
+
+
+	<!-- <script id="template-users" type="x-template" src="template/users.html"> -->
+	<div id="template-users" style="display: none;">
+		<table class="table">
+			<thead>
+				<tr>
+					<td>Id</td>
+					<td>Nom</td>
+					<td>Prénom</td>
+					<td>Actions</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="user in users">
+					<td>{{user.id}}</td>
+					<td>{{user.firstname}}</td>
+					<td>{{user.lastname}}</td>
+					<td>
+						<router-link class="button is-primary" :to="{name:'user',params:{id:user.id} }">Voir</router-link>
+						<button class="button is-danger" class="button is-danger">Supprimer</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="template-user" style="display: none;">
+		<form>
+		  <div class="field">
+		    <label class="label">Nom</label>
+		    <div class="control">
+		      <input class="input" v-model="user.lastname" type="text" placeholder="Nom">
+		    </div>
+		  </div>
+		  <div class="field">
+		    <label class="label">Prénom</label>
+		    <div class="control">
+		      <input class="input" v-model="user.firstname" type="text" placeholder="Nom">
+		    </div>
+		  </div>
+		</form>
+	</div>
+
+
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/vue-resource.min.js"></script>
+	<script type="text/javascript" src="js/vue-router.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html> 
