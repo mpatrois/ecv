@@ -22,15 +22,13 @@ var UserComponent = {
   },
   mounted : function(){
   	vm = this;
-    // console.log();
-  	this.$http.get('/users/'+vm.$route.params.id).then(function(data){
+    this.$http.get('/users/'+vm.$route.params.id).then(function(data){
+      console.log(data.body);
   		vm.user = data.body;
   	})
   },
   methods:{
     updateUser(user){
-      console.log(user.firstname);
-      console.log(user.lastname);
       this.$http.post('/users/'+vm.$route.params.id,user).then(function(data){
         console.log(data.body);
         // vm.user = data.body;
@@ -42,6 +40,7 @@ var UserComponent = {
 const routes = [
   { path: '/users', name :'users' , component: UsersComponent },
   { path: '/user/:id', name :'user' , component: UserComponent },
+  {path: '*', redirect: '/users'}
 ]
 
 const router = new VueRouter({

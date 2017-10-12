@@ -24,7 +24,7 @@ class Model {
       $db = Db::getInstance();
       $query = $db->prepare("SELECT * FROM $this->table WHERE id = :id");
       $query->execute(array('id' => intval($id)));
-      return $query->fetch();
+      return $query->fetch(PDO::FETCH_ASSOC);
     }
 
 }
