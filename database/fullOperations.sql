@@ -9,7 +9,9 @@ use merlen;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
-  `lastname` varchar(30) NOT NULL
+  `lastname` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -24,11 +26,11 @@ ALTER TABLE `users`
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`) 
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`) 
 VALUES 
-(1, "Luke", "Cage"), 
-(2, "John", "Snow"), 
-(3, "Luke", "Skywaller");
+(1, "Luke", "Cage", 'luke@merlen.fr','password'), 
+(2, "John", "Snow", 'john@merlen.fr','password'), 
+(3, "Luke", "Skywaller", 'luke@merlen.fr','password');
 
 
 --

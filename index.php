@@ -15,14 +15,17 @@ Router::route('/users', function() use ($userModel){
 });
 
 Router::route('/users/(\d+)', function($id) use ($userModel){
-
+	$result = null;
+	
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$data = json_decode(file_get_contents('php://input'));
-		$userModel->update($data);
+		$result = $userModel->update($data);
 	}else if ($_SERVER['REQUEST_METHOD'] === 'GET'){
-		header('Content-type: application/json');
-		print json_encode($userModel->find($id));
+		$result = $userModel->find($id);
 	}
+
+	header('Content-type: application/json');
+	print json_encode($result);
 });
 
 

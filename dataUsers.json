@@ -2,6 +2,8 @@
  {
  	"firstname":"Tupac",
  	"lastname":"Shakur",
+ 	"email" : "2pac@merlen.fr",
+ 	"password" : "password",
  	"phones" : [
  		{
  			"phone_number": "0600000005",
@@ -12,6 +14,8 @@
  {
  	"firstname":"Christopher",
  	"lastname":"Wallace",
+ 	"email" : "biggie@merlen.fr",
+ 	"password" : "password",
  	"phones" : [
  		{
  			"phone_number": "0600000006",
@@ -22,6 +26,8 @@
  {
  	"firstname":"Sean",
  	"lastname":"Carter",
+ 	"email" : "email@merlen.fr",
+ 	"password" : "password",
  	"phones" : [
  		{
  			"phone_number": "0600000006",

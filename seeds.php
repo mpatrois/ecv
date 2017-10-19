@@ -38,15 +38,19 @@ if($pdo!=null){
     // }
 
 
-    $insertUser = $pdo->prepare("INSERT INTO users (id, firstname, lastname) VALUES (null, :firstname, :lastname)");
+    $insertUser = $pdo->prepare("INSERT INTO users (id, firstname, lastname,email,password) VALUES (null, :firstname, :lastname,:email,:password)");
     $insertPhone = $pdo->prepare("INSERT INTO users_phones (user_id,phone_number,phone_type_id) VALUES (:userid, :phone_number,:phone_type_id)");
+
+
 
 
     foreach ($dataUsers as $user) {
     
         $insertUser->execute([
             ':firstname' => $user->firstname, 
-            ':lastname' => $user->lastname
+            ':lastname' => $user->lastname,
+            ':email' => $user->email,
+            ':password' => $user->password,
         ]);
         
         $userId = $pdo->lastInsertId();
