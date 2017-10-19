@@ -17,7 +17,8 @@ var UserComponent = {
   template:'#template-user',
   data: function(){
     	return {
-    		user: {}
+    		user: {},
+        errors:{}
     	}
   },
   mounted : function(){
@@ -29,9 +30,11 @@ var UserComponent = {
   },
   methods:{
     updateUser(user){
-      this.$http.post('/users/'+vm.$route.params.id,user).then(function(data){
-        console.log(data.body);
+      vm.errors = {};
+      this.$http.post('/users/'+vm.user.id,user).then(function(data){
         // vm.user = data.body;
+      },function(data){
+        vm.errors = data.body;
       });
     }
   }

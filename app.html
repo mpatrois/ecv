@@ -44,12 +44,28 @@
 		    <div class="control">
 		      <input class="input" v-model="user.lastname" type="text" placeholder="Nom">
 		    </div>
+		    <p class="help is-danger" v-if='errors.lastname'>{{errors.lastname}}</p>
 		  </div>
 		  <div class="field">
 		    <label class="label">Prénom</label>
 		    <div class="control">
-		      <input class="input" v-model="user.firstname" type="text" placeholder="Nom">
+		      <input class="input" v-model="user.firstname" type="text" placeholder="Prénom">
 		    </div>
+		    <p class="help is-danger" v-if='errors.firstname'>{{errors.firstname}}</p>
+		  </div>
+		  <div class="field">
+		    <label class="label">Email</label>
+		    <div class="control">
+		      <input class="input" v-model="user.email" type="text" placeholder="Email">
+		    </div>
+		    <p class="help is-danger" v-if='errors.email'>{{errors.email}}</p>
+		  </div>
+		  <div class="field">
+		    <label class="label">Password</label>
+		    <div class="control">
+		      <input class="input" v-model="user.password" type="text" placeholder="Password">
+		    </div>
+		    <p class="help is-danger" v-if='errors.password'>{{errors.password}}</p>
 		  </div>
 		  <button class="button is-primary">Modifier</button>
 		</form>
@@ -71,6 +87,7 @@
 	form{
 		width: 300px;
 		display: inline-block;
+		text-align: left;
 	}
 	.table{
 		display: inline-block;

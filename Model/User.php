@@ -22,14 +22,24 @@ class User extends Model {
   
   public function update($data){
   	$db = Db::getInstance();
-		$query = $db->prepare("UPDATE $this->table SET firstname=:firstname, lastname=:lastname WHERE id = :id");
-		$query->execute([
+		$query = $db->prepare(
+     "UPDATE $this->table 
+      SET firstname=:firstname,
+      lastname=:lastname,
+      email=:email,
+      password=:password 
+      WHERE id = :id"
+    );
+		
+    $query->execute([
       'id' => $data->id,
       'lastname' => $data->lastname,
       'firstname' => $data->firstname,
+      'email' => $data->email,
+      'password' => $data->password,
     ]);
-    // return $data;
-		return $query->fetch();
+
+    return $query->fetch();
   }
   
 
