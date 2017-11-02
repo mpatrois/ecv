@@ -28,25 +28,3 @@ class Model {
     }
 
 }
-
-
-  
-  
-  
-// class Animal {
-//   public static $color = 'black';
-
-//   public static function get_color()
-//   {
-//       return self::$color;
-//   }
-// }
-
-// class Dog extends Animal {
-//     public static $color = 'brown';
-
-//     public static function get_color() 
-//     {
-//       return self::$color;
-//     }
-// }

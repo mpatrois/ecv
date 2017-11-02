@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Liste des utilisateurs</title>
-	<!-- <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous"> -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
 </head>
 <body>
@@ -38,34 +37,34 @@
 
 	<div id="template-user" style="display: none;">
 		<form v-on:submit.prevent="updateUser(user)">
-		  <h2 class="title">{{user.firstname}} {{user.lastname}}</h2>
+		  <h2 class="title">{{fullName}}</h2>
 		  <div class="field">
 		    <label class="label">Nom</label>
 		    <div class="control">
 		      <input class="input" v-model="user.lastname" type="text" placeholder="Nom">
 		    </div>
-		    <p class="help is-danger" v-if='errors.lastname'>{{errors.lastname}}</p>
+		    <div class="help is-danger" v-errors="errors.lastname"></div>
 		  </div>
 		  <div class="field">
 		    <label class="label">Prénom</label>
 		    <div class="control">
 		      <input class="input" v-model="user.firstname" type="text" placeholder="Prénom">
 		    </div>
-		    <p class="help is-danger" v-if='errors.firstname'>{{errors.firstname}}</p>
+		    <div class="help is-danger" v-errors="errors.firstname"></div>
 		  </div>
 		  <div class="field">
 		    <label class="label">Email</label>
 		    <div class="control">
 		      <input class="input" v-model="user.email" type="text" placeholder="Email">
 		    </div>
-		    <p class="help is-danger" v-if='errors.email'>{{errors.email}}</p>
+		    <div class="help is-danger" v-errors="errors.email"></div>
 		  </div>
 		  <div class="field">
 		    <label class="label">Password</label>
 		    <div class="control">
 		      <input class="input" v-model="user.password" type="text" placeholder="Password">
 		    </div>
-		    <p class="help is-danger" v-if='errors.password'>{{errors.password}}</p>
+		    <div class="help is-danger" v-errors=errors.password></div>
 		  </div>
 		  <button class="button is-primary">Modifier</button>
 		</form>
@@ -85,7 +84,7 @@
 		text-align: center;
 	}
 	form{
-		width: 300px;
+		width: 390px;
 		display: inline-block;
 		text-align: left;
 	}

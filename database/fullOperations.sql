@@ -1,7 +1,7 @@
-drop database merlen;
-create database merlen;
+drop database patrois_emmanuel_php;
+create database patrois_emmanuel_php;
 
-use merlen;
+use patrois_emmanuel_php;
 
 --
 -- Structure de la table `users`
@@ -28,9 +28,9 @@ ALTER TABLE `users`
 
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `password`) 
 VALUES 
-(1, "Luke", "Cage", 'luke@merlen.fr','password'), 
-(2, "John", "Snow", 'john@merlen.fr','password'), 
-(3, "Luke", "Skywaller", 'luke@merlen.fr','password');
+(1, "Luke", "Cage", 'luke@mail.fr','password'), 
+(2, "John", "Snow", 'john@mail.fr','password'), 
+(3, "Luke", "Skywaller", 'luke@mail.fr','password');
 
 
 --

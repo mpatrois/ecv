@@ -39,7 +39,8 @@ class User extends Model {
       'password' => $data->password,
     ]);
 
-    return $query->fetch();
+    return self::find($data->id);
+  
   }
   
 

@@ -18,14 +18,16 @@ var UserComponent = {
   data: function(){
     	return {
     		user: {},
-        errors:{}
+        fullName : '',
+        errors:{},
+
     	}
   },
   mounted : function(){
   	vm = this;
     this.$http.get('/users/'+vm.$route.params.id).then(function(data){
-      console.log(data.body);
-  		vm.user = data.body;
+      vm.user = data.body;
+      vm.fullName = vm.user.lastname + ' ' + vm.user.firstname;
   	})
   },
   methods:{
@@ -33,12 +35,26 @@ var UserComponent = {
       vm.errors = {};
       this.$http.post('/users/'+vm.user.id,user).then(function(data){
         // vm.user = data.body;
+        vm.fullName = vm.user.lastname + ' ' + vm.user.firstname;
       },function(data){
         vm.errors = data.body;
       });
     }
   }
 };
+
+
+Vue.directive('errors', {
+  update: function (el, binding, vnode) {
+    el.innerHTML = "";
+    console.log(binding);
+    if(binding.value){
+      for (var i = 0; i < binding.value.length; i++) {
+        el.innerHTML += "<div>" + binding.value[i] +"</div>";
+      }
+    };
+  }
+})
 
 const routes = [
   { path: '/users', name :'users' , component: UsersComponent },

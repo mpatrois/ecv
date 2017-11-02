@@ -50,5 +50,3 @@ Router::route('/',function(){
 
 
 return Router::execute($_SERVER['REQUEST_URI']);
-
-// print($_SERVER['REQUEST_URI']);

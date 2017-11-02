@@ -2,7 +2,7 @@
  {
  	"firstname":"Tupac",
  	"lastname":"Shakur",
- 	"email" : "2pac@merlen.fr",
+ 	"email" : "2pac@mail.fr",
  	"password" : "password",
  	"phones" : [
  		{
@@ -14,7 +14,7 @@
  {
  	"firstname":"Christopher",
  	"lastname":"Wallace",
- 	"email" : "biggie@merlen.fr",
+ 	"email" : "biggie@mail.fr",
  	"password" : "password",
  	"phones" : [
  		{
@@ -26,7 +26,7 @@
  {
  	"firstname":"Sean",
  	"lastname":"Carter",
- 	"email" : "email@merlen.fr",
+ 	"email" : "scarter@mail.fr",
  	"password" : "password",
  	"phones" : [
  		{
