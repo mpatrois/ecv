@@ -44,9 +44,5 @@ Router::route('/',function(){
 	readfile('app.html');
 });
 
-// Router::route('public/(\d+)',function($file){
-// 	print($file);
-// });
-
 
 return Router::execute($_SERVER['REQUEST_URI']);

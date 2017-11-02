@@ -1,5 +1,7 @@
 <?php 
 
+// require 'Model/User.php';
+
 class Validator{
 
 	static public function checkers(){
@@ -19,7 +21,17 @@ class Validator{
 			'letters' => function ($value,$params)
 			{
 				return preg_match('/^[a-zA-Z]+$/', $value);
-				// return preg_match('/^[\w]+$/', $value);
+			},
+			'confirmation' => function ($value,$params,$nameField,$allValues)
+			{
+				return $value == $allValues[$nameField.'_confirmation'];
+			},
+			'correct' => function ($value,$params,$nameField,$allValues)
+			{
+				$userModel = new User();
+				$user = $userModel->find($allValues['id']);
+
+				return $value == $user[$nameField];
 			}
 		];
 	}
@@ -33,7 +45,8 @@ class RequestUpdateUser{
 			'firstname' => 'letters|min:2|max:20',
 			'lastname'  => 'letters|min:2|max:20',
 			'email'     => 'email',
-			'password'  => 'min:10',
+			'password'  => 'correct',
+			'new_password'  => 'min:10|confirmation',
 		];
 	}
 
@@ -48,7 +61,11 @@ class RequestUpdateUser{
 			'lastname.max' => 'Le nom doit contenir maximum 20 charactères',
 			
 			'email.email' => 'Le mail doit être valide',
-			'password.min'  => 'Le mot de passe doit contenir minimum 10 charactères',
+
+			'password.correct'  => 'Le mot de passe utilisateur fourni n\'est pas le même quen BDD',
+
+			'new_password.min'  => 'Le nouveau mot de passe doit contenir minimum 10 charactères',
+			'new_password.confirmation'  => 'Le mot de passe de confirmation ne correspond pas',
 		];
 	}
 
@@ -67,7 +84,7 @@ class RequestUpdateUser{
 				$checker = array_shift($dataCheck);
 				$attr = $dataCheck;
 
-				if(!Validator::checkers()[$checker]($valueToCheck,$attr)){
+				if(!Validator::checkers()[$checker]($valueToCheck,$attr,$field,$data)){
 					
 					if(!isset($messages[$field])){
 						$messages[$field] = [];

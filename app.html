@@ -60,12 +60,25 @@
 		    <div class="help is-danger" v-errors="errors.email"></div>
 		  </div>
 		  <div class="field">
-		    <label class="label">Password</label>
+		    <label class="label">Last Password</label>
 		    <div class="control">
 		      <input class="input" v-model="user.password" type="text" placeholder="Password">
 		    </div>
 		    <div class="help is-danger" v-errors=errors.password></div>
-		  </div>
+			</div>
+		  <div class="field">
+		    <label class="label">New Password</label>
+		    <div class="control">
+		      <input class="input" v-model="user.new_password" type="text" placeholder="Password">
+		    </div>
+		    <div class="help is-danger" v-errors=errors.new_password></div>
+			</div>
+			<div class="field">
+				<label class="label">Password Confirmation</label>
+				<div class="control">
+					<input class="input" v-model="user.new_password_confirmation" type="text" placeholder="Password">
+				</div>
+			</div>
 		  <button class="button is-primary">Modifier</button>
 		</form>
 	</div>
