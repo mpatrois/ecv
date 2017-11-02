@@ -16,7 +16,7 @@ Router::route('/users', function() use ($userModel){
 Router::route('/users/(\d+)', function($id) use ($userModel){
 	
 	header('Content-type: application/json');
-	
+
 	if($_SERVER['REQUEST_METHOD'] === 'POST'){
 		$data = json_decode(file_get_contents('php://input'));
 		
@@ -28,11 +28,17 @@ Router::route('/users/(\d+)', function($id) use ($userModel){
 			$result = $userModel->update($data);
 			print json_encode($result);
 		}
-		
-		
-
-	}else if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+	}
+	else if ($_SERVER['REQUEST_METHOD'] === 'GET'){
 		$result = $userModel->find($id);
+		header('Content-type: application/json');
+		print json_encode($result);
+	}
+	else if ($_SERVER['REQUEST_METHOD'] === 'DELETE'){
+		
+		$userModel->delete($id);
+		$result = $userModel->all();
+
 		header('Content-type: application/json');
 		print json_encode($result);
 	}

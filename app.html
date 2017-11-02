@@ -28,7 +28,7 @@
 					<td>{{user.lastname}}</td>
 					<td>
 						<router-link class="button is-primary" :to="{name:'user',params:{id:user.id} }">Voir</router-link>
-						<button class="button is-danger" class="button is-danger">Supprimer</button>
+						<button class="button is-danger" class="button is-danger" v-on:click="deleteUser(user.id)">Supprimer</button>
 					</td>
 				</tr>
 			</tbody>

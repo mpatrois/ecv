@@ -10,6 +10,13 @@ var UsersComponent = {
   	this.$http.get('/users').then(function(data){
   		vm.users = data.body;
   	})
+  },
+  methods:{
+    deleteUser(userId){
+      this.$http.delete('/users/'+userId).then(function (data) {
+        // vm.users = data.body;
+      })
+    }
   }
 };
 
