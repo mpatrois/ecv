@@ -14,7 +14,7 @@ var UsersComponent = {
   methods:{
     deleteUser(userId){
       this.$http.delete('/users/'+userId).then(function (data) {
-        // vm.users = data.body;
+        vm.users = data.body;
       })
     }
   }

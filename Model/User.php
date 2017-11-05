@@ -37,7 +37,6 @@ class User extends Model {
       'password' => $data->password,
     ]);
 
-    // $query->fetch(PDO::FETCH_ASSOC);
     return self::find($data->id);
   
   }
@@ -45,16 +44,15 @@ class User extends Model {
   public function delete($userId){
     $db = Db::getInstance();
     
+
+    $query = $db->prepare("DELETE FROM users_phones WHERE user_id = :id");
+    
+    $query->execute(['id' =>  intval($userId)]);
+
     $query = $db->prepare("DELETE FROM $this->table WHERE id = :id");
 
-    
+    $query->execute(['id' =>  intval($userId)]);
 
-    $query->execute([
-      'id' =>  intval($userId),
-    ]);
-
-    var_dump($query);
-    var_dump($userId);
     
   }
   
